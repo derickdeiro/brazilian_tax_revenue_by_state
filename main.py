@@ -1,35 +1,22 @@
-import requests
-import pandas as pd
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+            
 import logfire
-from io import StringIO
+logfire.configure()
+logfire.install_auto_tracing(modules=['src'], min_duration=0.01)
+logfire.instrument_system_metrics()
+
+from src.extract import get_br_gov_data
+from src.transform import clean_dataframe, rename_columns_to_english
 
 if __name__ == '__main__':
 
-    url = 'https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv'
-
-    logfire = logfire.configure()
-    logfire.i
-
-    logfire.info("Starting the data fetching process.", context={"url": url})
-
-    try:
-        response = requests.get(url=url)
-        logfire.info("Request sent to URL.", context={"status_code": response.status_code})
-
-        if response.status_code == 200:
-            logfire.info("Request successful. Processing data...")
-            
-            data = response.content
-            csv_data = StringIO(data.decode('latin1'))
-            df = pd.read_csv(csv_data, sep=';')
-            
-            logfire.info("Data loaded successfully.", context={
-                "columns": list(df.columns),
-                "rows": len(df),
-                "preview": df.head(3).to_dict()
-            })
-        else:
-            logfire.error("Failed to fetch data.", context={"status_code": response.status_code, "url": url})
-
-    except Exception as e:
-        logfire.error("An error occurred while processing the data.", context={"error": str(e)})
+    df_raw = get_br_gov_data()
+    
+    df_cleanned = clean_dataframe(df_raw)
+    
+    df_english = rename_columns_to_english(df_cleanned)
+    
+    print(df_english.dtypes)
