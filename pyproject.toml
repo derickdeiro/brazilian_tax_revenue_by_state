@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "logfire>=2.11.0",
+    "logfire[system-metrics]>=2.11.0",
     "pandas>=2.2.3",
     "requests>=2.32.3",
 ]
