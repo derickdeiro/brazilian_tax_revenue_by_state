@@ -45,3 +45,21 @@ columns_from_to_dict = {
     'RECEITA PREVIDENCIÁRIA - DEMAIS': 'Social Security Revenue - Other Sources',
     'ADMINISTRADAS POR OUTROS ÓRGÃOS': 'Administered by Other Agencies'
 }
+
+
+states_list = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']
+
+english_months = {
+    'Janeiro': 'January',
+    'Fevereiro': 'February',
+    'Março': 'March',
+    'Abril': 'April',
+    'Maio': 'May',
+    'Junho': 'June',
+    'Julho': 'July',
+    'Agosto': 'August',
+    'Setembro': 'September',
+    'Outubro': 'October',
+    'Novembro': 'November',
+    'Dezembro': 'December'
+}
