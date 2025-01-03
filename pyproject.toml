@@ -1,0 +1,13 @@
+[project]
+name = "brazilian-tax-revenue-by-state"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "kaggle>=1.6.17",
+    "logfire[system-metrics]>=2.11.0",
+    "pandas>=2.2.3",
+    "pandera>=0.22.1",
+    "requests>=2.32.3",
+]
