@@ -1,6 +1,6 @@
 # Brazilian Tax Revenue by State
 
-Welcome to the **Brazilian Tax Revenue by State** repository! This project analyzes and visualizes tax revenue data across different Brazilian states, offering insights into regional economic trends.
+This project analyzes tax revenue data across different Brazilian states.
 
 ## Table of Contents
 
